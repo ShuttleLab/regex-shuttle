@@ -50,7 +50,7 @@ export default function MatchResults({
         <span
           key={`match-${i}`}
           className={`${colorClass} rounded-sm px-0.5 font-mono`}
-          title={`${t("match")} ${i + 1}`}
+          title={t("matchLabel", { n: i + 1 })}
         >
           {match.text}
         </span>
@@ -111,13 +111,13 @@ export default function MatchResults({
                   <ChevronRight className="size-4 shrink-0" />
                 )}
                 <span
-                  className={`inline-block rounded-sm px-1.5 py-0.5 font-mono text-xs ${
+                  className={`inline-block max-w-[40%] truncate rounded-sm px-1.5 py-0.5 font-mono text-xs ${
                     MATCH_COLORS[i % MATCH_COLORS.length]
                   }`}
                 >
                   {match.text}
                 </span>
-                <span className="ml-auto text-xs text-muted-foreground">
+                <span className="ml-auto shrink-0 whitespace-nowrap text-xs text-muted-foreground">
                   {t("index")}: {match.index} &middot; {t("length")}:{" "}
                   {match.length}
                 </span>
@@ -135,20 +135,20 @@ export default function MatchResults({
                   {match.groups.length > 0 && (
                     <div className="mt-2 space-y-1">
                       <span className="text-xs font-medium text-muted-foreground">
-                        {t("group")}s:
+                        {t("groups")}:
                       </span>
                       {match.groups.map((group, gi) => (
                         <div
                           key={gi}
-                          className="ml-3 flex items-center gap-2 text-xs"
+                          className="ml-3 flex items-start gap-2 text-xs"
                         >
-                          <span className="text-muted-foreground">
+                          <span className="shrink-0 text-muted-foreground">
                             {group.name ? `${group.name}` : `#${gi + 1}`}:
                           </span>
-                          <span className="font-mono bg-muted rounded px-1">
+                          <span className="font-mono bg-muted rounded px-1 break-all min-w-0">
                             {group.text}
                           </span>
-                          <span className="text-muted-foreground">
+                          <span className="shrink-0 text-muted-foreground">
                             @{group.index}
                           </span>
                         </div>

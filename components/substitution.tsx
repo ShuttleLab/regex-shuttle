@@ -47,7 +47,9 @@ export default function Substitution({
       </div>
 
       {error && (
-        <p className="text-sm text-destructive">{error}</p>
+        <p className="text-sm text-destructive break-words">
+          {t("invalidRegex")}: {error}
+        </p>
       )}
 
       {replacement && (

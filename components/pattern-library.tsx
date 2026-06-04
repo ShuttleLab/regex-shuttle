@@ -32,7 +32,7 @@ export default function PatternLibrary() {
       await navigator.clipboard.writeText(str);
       toast.success(`${t("copyPattern")}: ${str}`);
     } catch {
-      toast.error("Failed to copy");
+      toast.error(t("copyFailed"));
     }
   };
 
@@ -42,7 +42,7 @@ export default function PatternLibrary() {
       await navigator.clipboard.writeText(str);
       toast.success(`${t("testPattern")}: ${str}`);
     } catch {
-      toast.error("Failed to copy");
+      toast.error(t("copyFailed"));
     }
   };
 
@@ -73,7 +73,7 @@ export default function PatternLibrary() {
                 {pattern.name}
               </h3>
               <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
-                {pattern.category}
+                {t(CATEGORY_TO_I18N[pattern.category] ?? pattern.category)}
               </span>
             </div>
 

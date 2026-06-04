@@ -43,7 +43,7 @@ export default function RegexInput({
       await navigator.clipboard.writeText(regexStr);
       toast.success(t("copyRegex") + ": " + regexStr);
     } catch {
-      toast.error("Failed to copy");
+      toast.error(t("copyFailed"));
     }
   };
 
@@ -150,25 +150,26 @@ export default function RegexInput({
       </div>
 
       {error && (
-        <p className="text-sm text-destructive">{t("invalidRegex")}: {error}</p>
+        <p className="text-sm text-destructive break-words">{t("invalidRegex")}: {error}</p>
       )}
 
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
         <span className="text-sm text-muted-foreground">{t("flags")}:</span>
         {FLAG_OPTIONS.map((opt) => (
           <label
             key={opt.flag}
-            className="flex items-center gap-1.5 cursor-pointer"
+            title={t(`flagTip_${opt.flag}`)}
+            className="flex min-h-10 items-center gap-1.5 cursor-pointer"
           >
             <input
               type="checkbox"
               checked={flags.includes(opt.flag)}
               onChange={() => toggleFlag(opt.flag)}
-              className="size-3.5 rounded border-input"
+              className="size-4 rounded border-input"
             />
             <span className="text-sm font-mono">{opt.flag}</span>
-            <span className="text-xs text-muted-foreground hidden sm:inline">
-              ({opt.label})
+            <span className="text-xs text-muted-foreground">
+              ({t(`flagLabel_${opt.flag}`)})
             </span>
           </label>
         ))}

@@ -13,7 +13,11 @@
     "error": "Error",
     "success": "Success",
     "alsoFrom": "Also from ShuttleLab",
-    "alsoFromNote": "Compress & convert images in your browser"
+    "alsoFromNote": "Compress & convert images in your browser",
+    "appearance": "Appearance",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark"
   },
   "home": {
     "title": "Regex Shuttle — Free Online Regex Tester, Explainer & Cheat Sheet",
@@ -69,7 +73,20 @@
     "result": "Result",
     "invalidRegex": "Invalid regular expression",
     "tooManyMatches": "Warning: More than {max} matches found. Results truncated for performance.",
-    "executionTime": "Executed in {time}ms"
+    "executionTime": "Executed in {time}ms",
+    "copyFailed": "Failed to copy to clipboard",
+    "groups": "Groups",
+    "matchLabel": "Match {n}",
+    "flagLabel_g": "Global",
+    "flagLabel_i": "Case Insensitive",
+    "flagLabel_m": "Multiline",
+    "flagLabel_s": "DotAll",
+    "flagLabel_u": "Unicode",
+    "flagTip_g": "g — Global: find all matches, not just the first",
+    "flagTip_i": "i — Case Insensitive: ignore upper/lowercase differences",
+    "flagTip_m": "m — Multiline: ^ and $ match the start/end of each line",
+    "flagTip_s": "s — DotAll: . also matches newline characters",
+    "flagTip_u": "u — Unicode: enable full Unicode matching"
   },
   "explainer": {
     "title": "Regex Explainer",
@@ -106,7 +123,8 @@
     "validation": "Validation",
     "copyPattern": "Copy Pattern",
     "testPattern": "Test Pattern",
-    "example": "Example"
+    "example": "Example",
+    "copyFailed": "Failed to copy to clipboard"
   },
   "about": {
     "heroTitle": "About Regex Shuttle",
