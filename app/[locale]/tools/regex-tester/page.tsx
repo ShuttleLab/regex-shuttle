@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import RegexTester from "@/components/regex-tester";
 import {
@@ -30,6 +30,36 @@ export async function generateMetadata({
   const { locale } = await params;
   const isDefault = locale === routing.defaultLocale;
   const canonical = isDefault ? `${BASE_URL}${PATH}` : `${BASE_URL}/${locale}${PATH}`;
+
+  if (locale === "zh") {
+    const t = await getTranslations({ locale, namespace: "toolPages" });
+    return {
+      title: `${t("regexTester.title")} | Regex Shuttle`,
+      description: t("regexTester.subtitle"),
+      alternates: {
+        canonical,
+        languages: {
+          en: `${BASE_URL}${PATH}`,
+          zh: `${BASE_URL}/zh${PATH}`,
+          "x-default": `${BASE_URL}${PATH}`,
+        },
+      },
+      openGraph: {
+        title: t("regexTester.title"),
+        description: t("regexTester.subtitle"),
+        url: canonical,
+        siteName: "Regex Shuttle",
+        type: "website",
+        locale: "zh_CN",
+        alternateLocale: "en_US",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: t("regexTester.title"),
+        description: t("regexTester.subtitle"),
+      },
+    };
+  }
 
   return {
     title: "Test Regex Online — Free Real-Time Regex Tester | Regex Shuttle",
@@ -215,6 +245,37 @@ export default async function RegexTesterPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  if (locale === "zh") {
+    const t = await getTranslations({ locale, namespace: "toolPages" });
+    return (
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <header className="mb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center justify-center size-10 rounded-lg bg-primary/10">
+              <Beaker className="size-5 text-primary" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
+              {t("regexTester.title")}
+            </h1>
+          </div>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            {t("regexTester.subtitle")}
+          </p>
+        </header>
+
+        <section className="mb-12">
+          <RegexTester />
+        </section>
+
+        <p className="text-sm text-muted-foreground">
+          <a href={PATH} className="hover:text-foreground underline underline-offset-4">
+            {t("viewFullGuide")}
+          </a>
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -204,5 +204,33 @@
     "regexTester": "Regex Tester",
     "regexExplainer": "Regex Explainer",
     "cheatSheet": "Cheat Sheet"
+  },
+  "toolPages": {
+    "openTool": "Open Tool",
+    "viewFullGuide": "View the full English guide",
+    "regexTester": {
+      "title": "Test Regex Online — Free Real-Time Regex Tester",
+      "subtitle": "Test any regular expression with instant real-time matching. See matches highlighted, view capture groups, and test substitution — all directly in your browser with zero data uploads."
+    },
+    "regexExplainer": {
+      "title": "Regex Explainer Online — Understand Any Regular Expression",
+      "subtitle": "Paste any regular expression and get a plain English explanation. See a token-by-token breakdown with meanings so you can understand exactly what a pattern matches."
+    },
+    "regexCheatSheet": {
+      "title": "Regex Cheat Sheet — Complete Regular Expression Reference",
+      "subtitle": "Your go-to quick reference for regular expression syntax. Browse by category, find the syntax you need, and click to copy. Covers characters, quantifiers, anchors, groups, and more."
+    },
+    "emailRegex": {
+      "title": "Email Regex Pattern — Validate Email Addresses with Regular Expressions",
+      "subtitle": "The complete guide to email validation with regex. Get battle-tested patterns, understand how they work, and test them with your own data — all in one place."
+    },
+    "phoneRegex": {
+      "title": "Phone Number Regex — Match and Validate Phone Numbers",
+      "subtitle": "Everything you need to validate phone numbers with regular expressions. Patterns for US numbers, international formats, and custom layouts — with a free online tester."
+    },
+    "urlRegex": {
+      "title": "URL Regex Pattern — Match and Validate URLs with Regular Expressions",
+      "subtitle": "The definitive guide to URL validation with regex. Get patterns for matching HTTP/HTTPS URLs, extracting links from text, and validating user-submitted URLs."
+    }
   }
 }
