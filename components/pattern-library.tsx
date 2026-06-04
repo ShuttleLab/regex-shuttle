@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { PATTERNS, PATTERN_CATEGORIES } from "@/lib/patterns";
 import { Button } from "@/components/ui/button";
-import { Copy, ExternalLink } from "lucide-react";
+import { Copy, FlaskConical } from "lucide-react";
 import { toast } from "sonner";
 
 const ALL_TAB = { id: "all", label: { en: "All", zh: "全部" } };
@@ -36,14 +36,13 @@ export default function PatternLibrary() {
     }
   };
 
-  const handleTestPattern = async (regex: string, flags: string) => {
-    const str = `/${regex}/${flags}`;
-    try {
-      await navigator.clipboard.writeText(str);
-      toast.success(`${t("testPattern")}: ${str}`);
-    } catch {
-      toast.error(t("copyFailed"));
-    }
+  const handleTestPattern = (regex: string, flags: string, sample?: string) => {
+    window.dispatchEvent(
+      new CustomEvent("regex:load-pattern", {
+        detail: { pattern: regex, flags, sample },
+      })
+    );
+    toast.success(t("loadedToTester"));
   };
 
   return (
@@ -106,9 +105,9 @@ export default function PatternLibrary() {
                 variant="secondary"
                 size="sm"
                 className="flex-1"
-                onClick={() => handleTestPattern(pattern.regex, pattern.flags)}
+                onClick={() => handleTestPattern(pattern.regex, pattern.flags, pattern.example)}
               >
-                <ExternalLink className="size-3.5" />
+                <FlaskConical className="size-3.5" />
                 {t("testPattern")}
               </Button>
             </div>

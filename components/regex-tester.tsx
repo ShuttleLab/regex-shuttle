@@ -21,6 +21,19 @@ export default function RegexTester() {
   const [tooManyMatches, setTooManyMatches] = useState(false);
   const [executionTime, setExecutionTime] = useState(0);
 
+  // Pattern library "Try it" buttons load a pattern + sample text here.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const { pattern: p, flags: fl, sample } = (e as CustomEvent).detail || {};
+      if (typeof p === "string") setPattern(p);
+      if (typeof fl === "string") setFlags(fl);
+      if (typeof sample === "string") setTestString(sample);
+      document.getElementById("tester")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    window.addEventListener("regex:load-pattern", handler);
+    return () => window.removeEventListener("regex:load-pattern", handler);
+  }, []);
+
   const executeWithDebounce = useCallback(() => {
     const timer = setTimeout(() => {
       const result = executeRegex(pattern, flags, testString);

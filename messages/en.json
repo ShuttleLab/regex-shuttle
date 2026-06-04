@@ -123,10 +123,11 @@
     "common": "Common",
     "developer": "Developer",
     "validation": "Validation",
-    "copyPattern": "Copy Pattern",
-    "testPattern": "Test Pattern",
+    "copyPattern": "Copy regex",
+    "testPattern": "Try in tester",
     "example": "Example",
-    "copyFailed": "Failed to copy to clipboard"
+    "copyFailed": "Failed to copy to clipboard",
+    "loadedToTester": "Loaded into the tester — scroll up to see matches"
   },
   "about": {
     "heroTitle": "About Regex Shuttle",

@@ -123,10 +123,11 @@
     "common": "常用",
     "developer": "开发",
     "validation": "验证",
-    "copyPattern": "复制模式",
-    "testPattern": "测试模式",
+    "copyPattern": "复制正则",
+    "testPattern": "在测试器中试用",
     "example": "示例",
-    "copyFailed": "复制到剪贴板失败"
+    "copyFailed": "复制到剪贴板失败",
+    "loadedToTester": "已装入测试器，正在跳转查看匹配结果"
   },
   "about": {
     "heroTitle": "关于 Regex Shuttle",
