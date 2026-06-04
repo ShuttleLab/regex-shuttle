@@ -86,7 +86,7 @@ Regex Shuttle — a free, browser-based regex testing, explaining, and learning 
 
 - Tailwind CSS v4 + shadcn/ui
 - Geist + Geist Mono fonts
-- Green accent color (hue 165) — distinguishes from sibling products
+- ShuttleLab purple identity (oklch hue 264) — consistent across all sibling products
 - Theme: System/Light/Dark (via `ThemeProvider`)
 - Toast: sonner (top-center, richColors, 3s)
 - Icons: lucide-react
