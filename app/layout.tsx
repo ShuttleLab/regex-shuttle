@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-sync";
+import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { Toaster } from "sonner";
 
 const geistSans = Geist({
@@ -19,8 +20,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f0fdf4" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a1f0a" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f3ff" },
+    { media: "(prefers-color-scheme: dark)", color: "#2a2540" },
   ],
 };
 
@@ -88,6 +89,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           {children}
+          <ServiceWorkerRegister />
           <Toaster position="top-center" richColors closeButton duration={3000} />
         </ThemeProvider>
       </body>

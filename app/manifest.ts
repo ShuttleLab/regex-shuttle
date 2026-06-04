@@ -10,8 +10,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Test, explain, and learn regular expressions in your browser. Real-time matching, pattern library, substitution, and cheat sheet. 100% private.",
     start_url: "/",
     display: "standalone",
-    background_color: "#f0fdf4",
-    theme_color: "#16a34a",
+    background_color: "#f5f3ff",
+    theme_color: "#7c3aed",
     orientation: "any",
     icons: [
       { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "maskable" },
