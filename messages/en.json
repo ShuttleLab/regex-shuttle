@@ -17,7 +17,9 @@
     "appearance": "Appearance",
     "themeSystem": "System",
     "themeLight": "Light",
-    "themeDark": "Dark"
+    "themeDark": "Dark",
+    "notePromoDesc": "Markdown editor & sharing",
+    "statusPromoDesc": "Uptime monitoring & alerts"
   },
   "home": {
     "title": "Regex Shuttle — Free Online Regex Tester, Explainer & Cheat Sheet",

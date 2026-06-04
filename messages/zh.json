@@ -17,7 +17,9 @@
     "appearance": "外观",
     "themeSystem": "跟随系统",
     "themeLight": "日间模式",
-    "themeDark": "暗色模式"
+    "themeDark": "暗色模式",
+    "notePromoDesc": "Markdown 编辑与分享",
+    "statusPromoDesc": "可用性监控与告警"
   },
   "home": {
     "title": "Regex Shuttle — 免费在线正则表达式测试、解释与速查表",
