@@ -225,7 +225,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 2,
       name: "Tools",
-      item: `${BASE_URL}/tools`,
+      item: `${BASE_URL}/tools/`,
     },
     {
       "@type": "ListItem",
