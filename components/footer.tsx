@@ -7,6 +7,7 @@ const GITHUB_URL = "https://github.com/ShuttleLab";
 
 const CURRENT_HOST = "regex.shuttlelab.org";
 const SIBLING_SITES: { name: string; host: string; featured?: boolean }[] = [
+  { name: "PPT Shuttle", host: "ppt.shuttlelab.org", featured: true },
   { name: "Note Shuttle", host: "note.shuttlelab.org", featured: true },
   { name: "Status Shuttle", host: "status.shuttlelab.org", featured: true },
   { name: "Clipboard Shuttle", host: "clipboard.shuttlelab.org" },
