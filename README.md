@@ -2,6 +2,8 @@
 
 A small web app to test, explain, and learn regular expressions. Everything runs on the browser's native JavaScript RegExp engine; no data is sent to any server.
 
+**🔗 Try it live: [Free online regex tester & debugger](https://regex.shuttlelab.org)** — test and explain patterns in real time, right in your browser.
+
 ## Features
 
 - **Real-time tester** – matches highlight as you type, with per-match groups, named groups, and indices
