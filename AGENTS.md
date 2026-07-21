@@ -12,8 +12,19 @@ Regex Shuttle — a free, browser-based regex testing, explaining, and learning 
 | Build | `npm run build` |
 | Lint | `npm run lint` |
 
-- `npm run build` compiles and outputs to `out/` for Cloudflare Pages deployment.
+- `npm run build` runs `next build` **then** `node scripts/postbuild.mjs`, outputting to `out/` for Cloudflare Pages deployment. The postbuild step is load-bearing — see Build Pipeline below.
+- `npm run lint` runs `eslint` directly (config in `eslint.config.mjs`).
 - There is **no test suite** configured.
+
+## Build Pipeline
+
+`scripts/postbuild.mjs` reconciles the static export with what the SEO metadata promises and generates the service worker. Without it, the default locale would live at `/en/` instead of `/`, breaking every canonical/hreflang/sitemap URL. It:
+
+1. **Promotes `out/en/*` → `out/`** and removes `out/en`, so `/` serves English (matches `localePrefix: "as-needed"` expectations vs. static-export behavior).
+2. **Patches `<html lang>`** from `en` to `zh-CN` across `out/zh/**/*.html`.
+3. **Generates `out/sw.js`** — a service worker precaching every emitted HTML route + PWA assets, with cache-first for `/_next/static/`, network-first for navigations, and stale-while-revalidate for everything else.
+
+If you change locale routing, the `out/` layout, or PWA assets, re-check this script.
 
 ## Architecture
 
@@ -99,7 +110,8 @@ Regex Shuttle — a free, browser-based regex testing, explaining, and learning 
 - No middleware (not supported with static export)
 - No Edge Runtime
 - `images.unoptimized: true` in next.config.ts
-- Build output: `out/`
+- `trailingSlash: true` — every route emits as a directory with `index.html`
+- Build output: `out/` (post-processed by `scripts/postbuild.mjs`, see Build Pipeline)
 
 ## SEO
 
@@ -111,4 +123,4 @@ Regex Shuttle — a free, browser-based regex testing, explaining, and learning 
 
 ## License
 
-MIT
+AGPL-3.0-only
