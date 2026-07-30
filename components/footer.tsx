@@ -29,6 +29,15 @@ const SIBLING_SITES: { name: string; host: string; featured?: boolean }[] = [
   { name: "NetPulse", host: "netpulse.shuttlelab.org" },
 ];
 
+const TOOL_PAGES: { href: string; key: string }[] = [
+  { href: "/tools/regex-tester", key: "regexTester" },
+  { href: "/tools/regex-explainer", key: "regexExplainer" },
+  { href: "/tools/regex-cheat-sheet", key: "regexCheatSheet" },
+  { href: "/tools/email-regex", key: "emailRegex" },
+  { href: "/tools/phone-regex", key: "phoneRegex" },
+  { href: "/tools/url-regex", key: "urlRegex" },
+];
+
 export default function Footer() {
   const t = useTranslations();
 
@@ -64,6 +73,19 @@ export default function Footer() {
             <a href="mailto:support@shuttlelab.org" className="hover:text-foreground transition-colors">
               {t("common.contact")}
             </a>
+          </div>
+          <div className="flex flex-col items-center gap-1.5 pt-1">
+            <span className="text-xs uppercase tracking-wider text-muted-foreground/70">{t("common.tools")}</span>
+            <nav className="flex items-center gap-x-2 gap-y-1 flex-wrap justify-center max-w-3xl">
+              {TOOL_PAGES.map((p, idx, arr) => (
+                <span key={p.href} className="flex items-center gap-x-2">
+                  <Link href={p.href} className="hover:text-foreground transition-colors">
+                    {t(`toolPages.${p.key}.title`)}
+                  </Link>
+                  {idx < arr.length - 1 && <span className="text-muted-foreground/30">·</span>}
+                </span>
+              ))}
+            </nav>
           </div>
           <div className="flex flex-col items-center gap-1.5 pt-1">
             <span className="text-xs uppercase tracking-wider text-muted-foreground/70">{t("common.alsoFrom")}</span>
